@@ -2,7 +2,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "http://localhost:8888/api",
+  baseURL: "https://medicine-server-95ck.onrender.com/api",
   headers: {
     "Content-Type": "application/json",
   },
