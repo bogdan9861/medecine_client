@@ -94,24 +94,6 @@ export default function LoginPage() {
               Саморегистрация отключена. Доступ выдается администратором клиники.
             </Typography.Paragraph>
           </div>
-
-          <Row gutter={[12, 12]}>
-            <Col xs={24} sm={8}>
-              <div className="hero-metric">
-                <Statistic title="Роли" value="4" valueStyle={{ color: "white" }} />
-              </div>
-            </Col>
-            <Col xs={24} sm={8}>
-              <div className="hero-metric">
-                <Statistic title="Сценарии" value="Прием" valueStyle={{ color: "white" }} />
-              </div>
-            </Col>
-            <Col xs={24} sm={8}>
-              <div className="hero-metric">
-                <Statistic title="API" value="/api/*" valueStyle={{ color: "white" }} />
-              </div>
-            </Col>
-          </Row>
         </aside>
 
         <section className="login-panel">
