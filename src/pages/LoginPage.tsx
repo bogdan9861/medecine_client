@@ -85,13 +85,13 @@ export default function LoginPage() {
               level={1}
               style={{ color: "white", marginTop: 48, marginBottom: 16, maxWidth: 560 }}
             >
-              Администратор создает регистраторов, регистраторы работают с пациентами, врачи ведут прием.
+              Система приёма пациентов
             </Typography.Title>
 
             <Typography.Paragraph
               style={{ color: "rgba(255,255,255,0.8)", fontSize: 16, maxWidth: 520 }}
             >
-              Саморегистрация отключена. Доступ выдается администратором клиники.
+              Для начала работы с системой учета пациентов войдите в аккаунт
             </Typography.Paragraph>
           </div>
         </aside>
