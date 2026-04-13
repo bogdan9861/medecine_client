@@ -2,7 +2,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "https://medicine-server-95ck.onrender.com/api",
+  baseURL: "https://medicine-server-jpjn.onrender.com/api",
   headers: {
     "Content-Type": "application/json",
   },
