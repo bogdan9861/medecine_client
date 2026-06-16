@@ -2,7 +2,8 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "https://medicine-server-jpjn.onrender.com/api",
+  // baseURL: "https://medicine-server-jpjn.onrender.com/api",
+  baseURL: "http://localhost:8080/api",
   headers: {
     "Content-Type": "application/json",
   },
@@ -28,5 +29,5 @@ api.interceptors.response.use(
       "Произошла ошибка при обращении к серверу";
 
     return Promise.reject(new Error(message));
-  }
+  },
 );

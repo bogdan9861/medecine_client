@@ -76,7 +76,7 @@ const buildSlotsFromSchedule = (schedule, dateValue) => {
   const matchedDay =
     schedule.find((item) => {
       const rawDay = String(
-        item?.day || item?.weekday || item?.dayOfWeek || ""
+        item?.day || item?.weekday || item?.dayOfWeek || "",
       ).toLowerCase();
       const rawDate = item?.date ? dayjs(item.date) : null;
 
@@ -90,7 +90,7 @@ const buildSlotsFromSchedule = (schedule, dateValue) => {
     matchedDay?.startTime || matchedDay?.start || matchedDay?.from;
   const endRaw = matchedDay?.endTime || matchedDay?.end || matchedDay?.to;
   const stepMinutes = Number(
-    matchedDay?.slotDuration || matchedDay?.durationMinutes || 15
+    matchedDay?.slotDuration || matchedDay?.durationMinutes || 15,
   );
 
   if (!startRaw || !endRaw) return [];
@@ -146,6 +146,15 @@ export default function AppointmentsPage() {
     toDate: "",
   });
   const [modalOpen, setModalOpen] = useState(false);
+
+  const statuses = {
+    SCHEDULED: "Запланирован",
+    CHECKED_IN: "Отметка о прибытии",
+    IN_PROGRESS: "В процессе приёма",
+    COMPLETED: "Завершён",
+    CANCELLED: "Отменён",
+    NO_SHOW: "Не явился",
+  };
 
   const loadLookups = async () => {
     try {
@@ -240,7 +249,7 @@ export default function AppointmentsPage() {
         ? normalizedSlots
         : fallbackSlots;
       const hasCurrentValue = nextSlots.some(
-        (slot) => String(slot.value) === String(currentAppointmentTime)
+        (slot) => String(slot.value) === String(currentAppointmentTime),
       );
 
       setDoctorSchedule(normalizedSchedule);
@@ -437,11 +446,11 @@ export default function AppointmentsPage() {
                     value === "CANCELLED"
                       ? "red"
                       : value === "COMPLETED"
-                      ? "green"
-                      : "blue"
+                        ? "green"
+                        : "blue"
                   }
                 >
-                  {value || "SCHEDULED"}
+                  {statuses[value] || "Запланирован"}
                 </Tag>
               ),
             },
@@ -486,7 +495,7 @@ export default function AppointmentsPage() {
             if (
               (Object.prototype.hasOwnProperty.call(
                 changedValues,
-                "doctorId"
+                "doctorId",
               ) ||
                 Object.prototype.hasOwnProperty.call(changedValues, "date")) &&
               allValues.doctorId &&

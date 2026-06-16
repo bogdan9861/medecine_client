@@ -20,6 +20,13 @@ export default function RegistratorsPage() {
   const [messageApi, contextHolder] = message.useMessage();
   const [submitting, setSubmitting] = useState(false);
 
+  const roles = {
+    ADMIN: "Администратор",
+    DOCTOR: "Доктор",
+    REGISTRATOR: "Регистратор",
+    PATIENT: "Пациент",
+  };
+
   if (user?.role !== "ADMIN") {
     return (
       <Result
@@ -98,10 +105,10 @@ export default function RegistratorsPage() {
                 <Input />
               </Form.Item>
 
-              <Form.Item name="role" label="Роль" initialValue="REGISTRATOR">
+              <Form.Item name="role" label="Роль" initialValue="Регистратор">
                 <Select
                   disabled
-                  options={[{ value: "REGISTRATOR", label: "REGISTRATOR" }]}
+                  options={[{ value: "Регистратор", label: "Регистратор" }]}
                 />
               </Form.Item>
 
@@ -125,7 +132,7 @@ export default function RegistratorsPage() {
                         return Promise.resolve();
                       }
                       return Promise.reject(
-                        new Error("Пароли должны совпадать")
+                        new Error("Пароли должны совпадать"),
                       );
                     },
                   }),

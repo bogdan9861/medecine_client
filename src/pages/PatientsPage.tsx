@@ -22,6 +22,7 @@ import { Navigate } from "react-router-dom";
 import { useAuth } from "../app/store/auth.context";
 import { patientsApi } from "../features/patients/patients.api";
 import Table from "../shared/ui/Table";
+import ruRU from "antd/es/date-picker/locale/ru_RU";
 
 const { RangePicker } = DatePicker;
 
@@ -185,6 +186,7 @@ export default function PatientsPage() {
 
           <RangePicker
             format="DD.MM.YYYY"
+            locale={ruRU}
             onChange={(dates) =>
               setFilters((prev) => ({
                 ...prev,

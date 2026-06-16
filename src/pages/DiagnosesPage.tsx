@@ -64,7 +64,7 @@ export default function DiagnosesPage() {
 
       if (!isPatient) {
         requests.unshift(
-          patientsApi.list({ page: 1, limit: 100, isArchived: false })
+          patientsApi.list({ page: 1, limit: 100, isArchived: false }),
         );
       }
 
@@ -75,7 +75,7 @@ export default function DiagnosesPage() {
               page: 1,
               limit: 100,
               ...(user?.role === "DOCTOR" ? { doctorId: currentDoctorId } : {}),
-            })
+            }),
       );
 
       const responses = await Promise.all(requests);
@@ -219,7 +219,7 @@ export default function DiagnosesPage() {
           </Col>
           <Col xs={24} md={12}>
             <Card className="page-card">
-              <Statistic title="Период" value={statistics.period || "month"} />
+              <Statistic title="Период" value={"Месяц"} />
             </Card>
           </Col>
         </Row>
